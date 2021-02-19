@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import Pokemon.Models.Pokemon;
+import Pokemon.DTOs.PokemonDTO;
 import Pokemon.PokeAPIServices.PokemonService;
 
 @RestController
@@ -29,12 +29,12 @@ public class PokemonController {
     }
 
     @GetMapping("{id}")
-    public Pokemon getCharmander(@PathVariable(name="id") String id){
+    public PokemonDTO getCharmander(@PathVariable(name="id") String id){
         try{
             String returnedPokemon = pokeService.getPostsPlainJSON(id);
-            Pokemon toPokemon = mapper.readValue(returnedPokemon, Pokemon.class);
-            // return toPokemon;
-            return null;
+            PokemonDTO toPokemon = mapper.readValue(returnedPokemon, PokemonDTO.class);
+             return toPokemon;
+            // return null;
         }catch (IOException e) {
             e.printStackTrace();
             return null;

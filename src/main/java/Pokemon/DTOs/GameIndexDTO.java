@@ -1,4 +1,4 @@
-package Pokemon.Models;
+package Pokemon.DTOs;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown=true)
-public class Pokemon {
-    private String base_experience;
-    private String name;
+public class GameIndexDTO {
+    private String game_index;
+    private VersionDTO version;
 }
